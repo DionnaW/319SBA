@@ -12,15 +12,14 @@ import flavorRoutes from './controllers/flavor.mjs';
 //express application specifically for the Login/Profile page & other variables.....for bigger project
 const profile = express();
 const PORT = process.env.PORT || 5050
-
-// profile.use(express.json());
-
+//====eng. views===
 profile.set('view engine', 'jsx');
 profile.set('views', './views');
 profile.engine('jsx', jsxViewEngine());
-
+//=====middleware
 profile.use(express.urlencoded({extended: false}))
-
+profile.use(methodOverride('_method'));
+//===routes====
 profile.use('/flavors', flavorRoutes);
 
 profile.get('/', function(req, res) {

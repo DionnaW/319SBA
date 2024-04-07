@@ -17,27 +17,54 @@ router.get('/seed', async (req, res) => {
         res.status(400).send(error);
     }
 })
-
+//====I=====
 router.get('/', async (req, res) => {
     try {
         const foundFlavors = await Flavor.find({});
         res.status(200).render('flavors/Index', { flavors: foundFlavors })
-        // res.status(200).send(foundFlavors);
     } catch (error) {
         res.status(400).send(error);
     }
 })
-
+//====N====
 router.get('/new', (req, res) => {
     res.render('flavors/New');
 })
+//====D====
+router.delete('/:id', async (req, res) => {
+    try {
+        const deletedFlavor = await Flavor.findByIdAndDelete(req.params.id);
+        console.log(deletedFlavor);
+        res.status(200).redirect('/flavors');
+    } catch (err) {
+        res.status(400).send(err);
+    }
+})
+//=====U====
+router.put('/:id', async (req, res) => {
+    if (req.body.readyToUse === 'on') {
+        req.body.readyToUse = true;
+    } else {
+        req.body.readyToUse = false;
+    }
 
+    try {
+        const updatedFlavor = await Flavor.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true },
+        );
+            console.log(updatedFlavor);
+        res.redirect(`/flavors/${req.params.id}`);
+    } catch (err) {
+        res.status(400).send(err);
+    }
+})
+//===C=====
 router.post('/', async (req, res) => {
-    //this if statement will be for when we have a user input form
-    //this is the boolean so we want it to be true
-    if (req.body.readyToUse === 'on') { //if checked req.body.ready.. is set to 'on' or the checkbox is checked
+    if (req.body.readyToUse === 'on') { 
         req.body.readyToUse = 'true';
-    } else {   //this says if box not checked then it was undefined
+    } else {   
         req.body.readyToUse = false;
     }
 
@@ -48,7 +75,16 @@ router.post('/', async (req, res) => {
         res.status(400).send(error);
     }
 })
-
+//=====E======
+router.get("/:id/edit", async (req, res) => {
+    try {
+        const foundFlavor = await Flavor.findById(req.params.id);
+        res.status(200).render('flavors/Edit', {flavor: foundFlavor});
+    } catch (err) {
+        res.status(400).send(err);
+    }
+})
+//=====S=====
 router.get('/:id', async (req, res) => {
     try {
         const foundFlavor = await Flavor.findById(req.params.id);
