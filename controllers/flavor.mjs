@@ -35,15 +35,15 @@ router.get('/new', (req, res) => {
 router.post('/', async (req, res) => {
     //this if statement will be for when we have a user input form
     //this is the boolean so we want it to be true
-    // if (req.body.readyToUse === 'on') { //if checked req.body.ready.. is set to 'on' or the checkbox is checked
-        // req.body.readyToUse = 'true';
-    // } else {   //this says if box not checked then it was undefined
-        // req.body.readyToUse = false;
-    // }
+    if (req.body.readyToUse === 'on') { //if checked req.body.ready.. is set to 'on' or the checkbox is checked
+        req.body.readyToUse = 'true';
+    } else {   //this says if box not checked then it was undefined
+        req.body.readyToUse = false;
+    }
 
     try {
         const createdFlavor = await Flavor.create(req.body);
-        res.status(200).send(createdFlavor);
+        res.status(200).redirect('/flavors');
     } catch (error) {
         res.status(400).send(error);
     }
