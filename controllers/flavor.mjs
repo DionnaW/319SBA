@@ -4,19 +4,19 @@ import Flavor from '../models/flavor.mjs';
 import db from '../db/conn.mjs';
 
 //seed route for testing purposes only
-router.get('/seed', async (req, res) => {
-    console.log('in seed');
-    try {
-        await Flavor.create([
-            { name: 'raspberry', color: 'blue', readyToUse: true },
-            { name: 'banana', color: 'yellow', readyToUse: false },
-            { name: 'root beer', color: 'brown', readyToUse: true }
-        ])
-        res.status(200).redirect('/flavors');
-    } catch (error) {
-        res.status(400).send(error);
-    }
-})
+// router.get('/seed', async (req, res) => {
+    // console.log('in seed');
+    // try {
+        // await Flavor.create([
+            // { name: 'raspberry', color: 'blue', readyToUse: true },
+            // { name: 'banana', color: 'yellow', readyToUse: false },
+            // { name: 'root beer', color: 'brown', readyToUse: true }
+        // ])
+        // res.status(200).redirect('/flavors');
+    // } catch (error) {
+        // res.status(400).send(error);
+    // }
+// })
 //====I=====
 router.get('/', async (req, res) => {
     try {

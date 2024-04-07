@@ -4,7 +4,6 @@ const DefaultLayout = require('../layout/Default')
 class Index extends React.Component {
     render() {
         const { flavors } = this.props;
-        // const flavors = this.props.flavors;
 
         return (
             <DefaultLayout title={"Flavors Index Page"}>

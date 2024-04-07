@@ -11,6 +11,8 @@ So far typing in localhost:5050, the browser will show the title and three links
 Create a new flavor is working properly
 Edit, delete, and update in flavors are all wrkin properly working
 
+Create, edit, update, and delete all working for the Topping model!
+
 
 
 

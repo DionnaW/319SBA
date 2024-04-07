@@ -8,6 +8,8 @@ import jsxViewEngine from 'jsx-view-engine';
 import methodOverride from 'method-override';
 import db from './db/conn.mjs';
 import flavorRoutes from './controllers/flavor.mjs';
+import toppingRoutes from './controllers/topping.mjs';
+// import scheduleRoutes from './controllers/schedule.mjs'  uncomment after all is done
 
 //express application specifically for the Login/Profile page & other variables.....for bigger project
 const profile = express();
@@ -21,6 +23,8 @@ profile.use(express.urlencoded({extended: false}))
 profile.use(methodOverride('_method'));
 //===routes====
 profile.use('/flavors', flavorRoutes);
+profile.use('/toppings', toppingRoutes);
+// profile.use('/schedules', scheduleRoutes); uncomment after other schedule things are done
 
 profile.get('/', function(req, res) {
     res.send(
@@ -33,3 +37,4 @@ profile.get('/', function(req, res) {
 profile.listen(PORT, () => {
     console.log(`port is listening`);
 });
+
