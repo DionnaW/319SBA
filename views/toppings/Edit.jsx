@@ -1,4 +1,4 @@
-//flavors/Edit.jsx
+//toppings/Edit.jsx
 const React = require('react');
 const DefaultLayout = require('../layout/Default.jsx')
 
@@ -8,7 +8,7 @@ class Edit extends React.Component{
       <DefaultLayout title="Edit Page">      
       <form action={`/toppings/${this.props.topping._id}?_method=PUT`} method="POST">
           Name: <input type="text" name="name" defaultValue={this.props.topping.name}/><br/>
-          Price: <input type="number" name="price"  defaultValue={this.props.topping.color}/><br/>
+          Price: <input type="number" name="price"  defaultValue={this.props.topping.price}/><br/>
           Is Ready To Eat:
               { this.props.topping.readyToEat? <input type="checkbox" name="readyToEat" defaultChecked />: <input type="checkbox" name="readyToEat"/> }
           <br/>

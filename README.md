@@ -15,6 +15,10 @@ Create, edit, update, and delete all working for the Topping model!
 
 I got my Schedule Index page to come up with an option to add a date, but errors after that, good night/morning!
 
+4/8
+I changed my idea of doing schedules because it was too difficult to incorporate into this particular project. Instead I'm using drinks, as I have on my menu anyway!
+I've completed this SBA and will turn it in!
+
 
 
 

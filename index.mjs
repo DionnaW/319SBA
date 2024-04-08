@@ -9,7 +9,7 @@ import methodOverride from 'method-override';
 import db from './db/conn.mjs';
 import flavorRoutes from './controllers/flavor.mjs';
 import toppingRoutes from './controllers/topping.mjs';
-import scheduleRoutes from './controllers/schedule.mjs'  
+import drinkRoutes from './controllers/drink.mjs';
 
 //express application specifically for the Login/Profile page & other variables.....for bigger project
 const profile = express();
@@ -24,11 +24,11 @@ profile.use(methodOverride('_method'));
 //===routes====
 profile.use('/flavors', flavorRoutes);
 profile.use('/toppings', toppingRoutes);
-profile.use('/schedules', scheduleRoutes); 
+profile.use('/drinks', drinkRoutes); 
 
 profile.get('/', function(req, res) {
     res.send(
-        `<div>Future Profile Pg route 4 big 1 <br/><a href='/flavors'>Flavors</a> <br/><a href='/toppings'>Toppings</a> <br/><a href='/schedules'>Schedules</a></div>`  
+        `<div>Future Profile Pg route 4 big 1 <br/><a href='/flavors'>Flavors</a> <br/><a href='/toppings'>Toppings</a> <br/><a href='/drinks'>Drinks</a></div>`  
     )
     // let content =  `<div>Book Your Next Event<br>Choose up to 5 *EXTRA* Exclusive Flavors</div>`   //for bigger project
     // res.send(content);
