@@ -9,7 +9,7 @@ import methodOverride from 'method-override';
 import db from './db/conn.mjs';
 import flavorRoutes from './controllers/flavor.mjs';
 import toppingRoutes from './controllers/topping.mjs';
-// import scheduleRoutes from './controllers/schedule.mjs'  uncomment after all is done
+import scheduleRoutes from './controllers/schedule.mjs'  
 
 //express application specifically for the Login/Profile page & other variables.....for bigger project
 const profile = express();
@@ -24,7 +24,7 @@ profile.use(methodOverride('_method'));
 //===routes====
 profile.use('/flavors', flavorRoutes);
 profile.use('/toppings', toppingRoutes);
-// profile.use('/schedules', scheduleRoutes); uncomment after other schedule things are done
+profile.use('/schedules', scheduleRoutes); 
 
 profile.get('/', function(req, res) {
     res.send(

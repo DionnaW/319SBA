@@ -1,25 +1,11 @@
 import mongoose from 'mongoose';
 
 const scheduleSchema = new mongoose.Schema({
-    date: {
-      type: Date,
-      required: true
-    },
-    timeSlots: [{
-      startTime: {
-        type: String,
-        required: true
-      },
-      endTime: {
-        type: String,
-        required: true
-      },
-      isAvailable: {
-        type: Boolean,
-        default: true
-      }
-    }]
-  });
+  date: { type: Date, required: true },
+  startTime: { type: Date, required: true },
+  endTime: { type: Date, required: true }
+});
+
 
   const Schedule = mongoose.model('Schedule', scheduleSchema);
 

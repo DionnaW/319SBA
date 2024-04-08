@@ -13,6 +13,8 @@ Edit, delete, and update in flavors are all wrkin properly working
 
 Create, edit, update, and delete all working for the Topping model!
 
+I got my Schedule Index page to come up with an option to add a date, but errors after that, good night/morning!
+
 
 
 
